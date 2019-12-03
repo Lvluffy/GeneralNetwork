@@ -7,28 +7,34 @@ import io.reactivex.disposables.Disposable;
 /**
  * Created by lvlufei on 2018/11/3
  *
- * @desc Http请求观察者
+ * @desc API请求观察者
  */
-public abstract class BaseLayerApiObserver<T> implements Observer<T>,
-        IBaseLayerApiObserver<T> {
+public abstract class BaseLayerApiObserver<M> implements Observer<M>,
+        IBaseLayerApiObserver<M>,
+        IBaseLayerApiData<M> {
 
     @Override
     public void onSubscribe(@NonNull Disposable d) {
     }
 
     @Override
-    public void onNext(T t) {
-        cacheNetworkData(t);
-        next(t);
+    public void onNext(M m) {
+        onCacheData(m);
+        onObserverNext(m);
     }
 
     @Override
     public void onError(Throwable e) {
-        error(e);
+        onObserverError(e);
     }
 
     @Override
     public void onComplete() {
-        completed();
+
+    }
+
+    @Override
+    public void onCacheData(M m) {
+
     }
 }

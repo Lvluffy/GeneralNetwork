@@ -45,18 +45,18 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
     }
 
     @Override
-    public void loading(boolean isShow, BaseLayerPresenter cls) {
+    public void onLoading(boolean isShow, BaseLayerPresenter cls) {
 
     }
 
     @Override
-    public void completed(BaseLayerPresenter cls) {
-
-    }
-
-    @Override
-    public void onError(Throwable e, BaseLayerPresenter cls) {
+    public void onObserverError(Throwable e, BaseLayerPresenter cls) {
         txtTitle.setText(e.toString());
+    }
+
+    @Override
+    public void onNetworkError(BaseLayerPresenter cls) {
+
     }
 
     @OnClick(R.id.btn_login)

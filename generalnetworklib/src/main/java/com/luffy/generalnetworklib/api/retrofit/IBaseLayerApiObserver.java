@@ -3,33 +3,23 @@ package com.luffy.generalnetworklib.api.retrofit;
 /**
  * Created by lvlufei on 2019/7/8
  *
- * @name Http请求观察者-回调
+ * @name API请求观察者监听
  * @desc
  */
-public interface IBaseLayerApiObserver<T> {
-    /**
-     * 缓存网络数据
-     *
-     * @param d 数据
-     */
-    void cacheNetworkData(T d);
+public interface IBaseLayerApiObserver<M> {
 
     /**
      * 请求下一步
      *
-     * @param d
+     * @param m 数据
      */
-    void next(T d);
+    void onObserverNext(M m);
 
     /**
      * 请求异常
      *
      * @param e
      */
-    void error(Throwable e);
+    void onObserverError(Throwable e);
 
-    /**
-     * 请求完成
-     */
-    void completed();
 }

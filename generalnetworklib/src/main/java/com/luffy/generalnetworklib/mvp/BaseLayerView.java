@@ -6,26 +6,27 @@ package com.luffy.generalnetworklib.mvp;
  * @desc MVP模式开发之View
  */
 public interface BaseLayerView {
+
     /**
      * 加载Loading
      *
      * @param isShow
      * @param cls
      */
-    void loading(boolean isShow, BaseLayerPresenter cls);
+    void onLoading(boolean isShow, BaseLayerPresenter cls);
 
     /**
-     * 完成
-     *
-     * @param cls
-     */
-    void completed(BaseLayerPresenter cls);
-
-    /**
-     * 异常
+     * 请求异常
      *
      * @param e
      * @param cls
      */
-    void onError(Throwable e, BaseLayerPresenter cls);
+    void onObserverError(Throwable e, BaseLayerPresenter cls);
+
+    /**
+     * 网络异常
+     *
+     * @param cls
+     */
+    void onNetworkError(BaseLayerPresenter cls);
 }

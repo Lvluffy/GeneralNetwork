@@ -28,25 +28,18 @@ public class LoginPresenter extends BaseLayerPresenter<LoginContract.LoginView> 
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new BaseLayerApiObserver<LoginBean>() {
-                    @Override
-                    public void completed() {
-                        view.completed(LoginPresenter.this);
-                    }
 
                     @Override
-                    public void error(Throwable e) {
-                        view.onError(e, LoginPresenter.this);
+                    public void onObserverError(Throwable e) {
+                        view.onObserverError(e, LoginPresenter.this);
                     }
 
+
                     @Override
-                    public void next(LoginBean loginBean) {
+                    public void onObserverNext(LoginBean loginBean) {
                         view.showLogin(loginBean);
                     }
 
-                    @Override
-                    public void cacheNetworkData(LoginBean loginBean) {
-
-                    }
                 });
     }
 
