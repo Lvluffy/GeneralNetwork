@@ -10,23 +10,23 @@ public interface BaseLayerView {
     /**
      * 加载Loading
      *
-     * @param isShow
-     * @param cls
+     * @param isShow 是否显示
+     * @param cls    基础Presenter
      */
     void onLoading(boolean isShow, BaseLayerPresenter cls);
 
     /**
      * 请求异常
      *
-     * @param e
-     * @param cls
+     * @param e   Throwable
+     * @param cls 基础Presenter
      */
     void onObserverError(Throwable e, BaseLayerPresenter cls);
 
     /**
      * 网络异常
      *
-     * @param cls
+     * @param cls 基础Presenter
      */
     void onNetworkError(BaseLayerPresenter cls);
 }

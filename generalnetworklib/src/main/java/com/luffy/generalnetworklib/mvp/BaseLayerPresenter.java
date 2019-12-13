@@ -12,7 +12,7 @@ public abstract class BaseLayerPresenter<V extends BaseLayerView> {
         attachView(view);
     }
 
-    public void attachView(V view) {
+    private void attachView(V view) {
         this.view = view;
     }
 

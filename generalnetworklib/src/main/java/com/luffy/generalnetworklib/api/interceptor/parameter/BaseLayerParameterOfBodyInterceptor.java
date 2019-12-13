@@ -21,7 +21,7 @@ public abstract class BaseLayerParameterOfBodyInterceptor extends BaseLayerParam
             FormBody oldFormBody = (FormBody) request.body();
             FormBody.Builder formBodyBuilder = new FormBody.Builder();
             //添加旧参数（接口请求参数）
-            for (int i = 0; i < oldFormBody.size(); i++) {
+            for (int i = 0; i < (oldFormBody != null ? oldFormBody.size() : 0); i++) {
                 formBodyBuilder.add(oldFormBody.encodedName(i), oldFormBody.encodedValue(i));
             }
             //添加公共Body

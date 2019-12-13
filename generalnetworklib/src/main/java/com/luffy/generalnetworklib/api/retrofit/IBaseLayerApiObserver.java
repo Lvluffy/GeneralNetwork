@@ -18,7 +18,7 @@ public interface IBaseLayerApiObserver<M> {
     /**
      * 请求异常
      *
-     * @param e
+     * @param e Throwable
      */
     void onObserverError(Throwable e);
 

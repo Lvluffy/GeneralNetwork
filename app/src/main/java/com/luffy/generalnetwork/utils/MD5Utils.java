@@ -45,10 +45,10 @@ public class MD5Utils {
     }
 
     public String md5(File file) throws IOException {
-        MessageDigest messagedigest = null;
+        MessageDigest messagedigest;
         FileInputStream in = null;
         FileChannel ch = null;
-        byte[] encodeBytes = null;
+        byte[] encodeBytes;
         try {
             messagedigest = MessageDigest.getInstance("MD5");
             in = new FileInputStream(file);
@@ -67,7 +67,7 @@ public class MD5Utils {
     }
 
     public String md5(String string) {
-        byte[] encodeBytes = null;
+        byte[] encodeBytes;
         try {
             encodeBytes = MessageDigest.getInstance("MD5").digest(string.getBytes("UTF-8"));
         } catch (NoSuchAlgorithmException neverHappened) {

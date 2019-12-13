@@ -23,7 +23,7 @@ public class RxBus {
      * 静态内部类实现单例
      */
     private static class RxBusHelper {
-        private static RxBus mRxBus;
+        private static final RxBus mRxBus;
 
         static {
             mRxBus = new RxBus();

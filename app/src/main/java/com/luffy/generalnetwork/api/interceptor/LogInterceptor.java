@@ -22,7 +22,7 @@ public class LogInterceptor extends BaseLayerLogInterceptor {
         Log.i(TAG, String.format("request url == %s", chain.request().url()));
         Log.i(TAG, String.format("request headers == %s", chain.request().headers().toString()));
         FormBody formBody = (FormBody) chain.request().body();
-        for (int i = 0; i < formBody.size(); i++) {
+        for (int i = 0; i < (formBody != null ? formBody.size() : 0); i++) {
             Log.i(TAG, String.format("request bodys %s == %s", formBody.encodedName(i), formBody.encodedValue(i)));
         }
         HttpUrl httpUrl = chain.request().url();

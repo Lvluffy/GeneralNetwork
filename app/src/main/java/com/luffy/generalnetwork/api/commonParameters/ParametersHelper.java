@@ -45,7 +45,7 @@ public class ParametersHelper {
     }
 
     public String getSign(FormBody formBody) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         if (formBody != null) {
             for (int i = 0; i < formBody.size(); i++) {
                 String name = formBody.name(i);
