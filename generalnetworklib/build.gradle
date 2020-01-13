@@ -44,11 +44,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     /**retrofit2*/
-    api 'com.squareup.retrofit2:retrofit:2.7.0'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.7.0'
-    api 'com.squareup.retrofit2:converter-gson:2.7.0'
+    compile 'com.squareup.retrofit2:retrofit:2.7.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.7.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.7.0'
     /**Rxjava/RxAndroid*/
-    api 'io.reactivex.rxjava2:rxjava:2.2.15'
-    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+    compile 'io.reactivex.rxjava2:rxjava:2.2.15'
+    compile 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
 }
