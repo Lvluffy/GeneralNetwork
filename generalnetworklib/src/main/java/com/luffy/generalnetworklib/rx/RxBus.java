@@ -19,15 +19,8 @@ public class RxBus {
         return RxBus.RxBusHelper.mRxBus;
     }
 
-    /**
-     * 静态内部类实现单例
-     */
     private static class RxBusHelper {
-        private static final RxBus mRxBus;
-
-        static {
-            mRxBus = new RxBus();
-        }
+        private static final RxBus mRxBus = new RxBus();
     }
 
     public void send(Object object) {
