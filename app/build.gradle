@@ -47,7 +47,7 @@ dependencies {
     /**butterknife*/
     implementation 'com.jakewharton:butterknife:9.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0'
-    /*generalnetworklib*/
-    implementation project(path: ':mvplib')
+    /**project*/
     implementation project(path: ':apilib')
+    implementation project(path: ':mvplib')
 }
