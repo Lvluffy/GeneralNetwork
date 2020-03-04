@@ -1,4 +1,4 @@
-package com.luffy.generalnetworklib.mvp;
+package com.luffy.mvplib;
 
 import java.io.Serializable;
 

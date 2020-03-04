@@ -1,4 +1,4 @@
-package com.luffy.generalnetworklib.api.interceptor.parameter;
+package com.luffy.apilib.interceptor.parameter;
 
 import java.io.IOException;
 

@@ -2,7 +2,7 @@ package com.luffy.generalnetwork.mvp.contract;
 
 
 import com.luffy.generalnetwork.mvp.model.LoginBean;
-import com.luffy.generalnetworklib.mvp.BaseLayerView;
+import com.luffy.mvplib.BaseLayerView;
 
 /**
  * Created by lvlufei on 2018/11/3

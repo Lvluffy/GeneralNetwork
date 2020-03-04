@@ -2,7 +2,7 @@ package com.luffy.generalnetwork.api.interceptor;
 
 import android.util.Log;
 
-import com.luffy.generalnetworklib.api.interceptor.log.BaseLayerLogInterceptor;
+import com.luffy.apilib.interceptor.log.BaseLayerLogInterceptor;
 
 import java.io.IOException;
 

@@ -1,15 +1,17 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.Lvluffy'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
     /**默认-选项配置*/
     defaultConfig {
-        applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+        consumerProguardFiles 'proguard-rules.pro'
     }
     /**构建类型-配置*/
     buildTypes {
@@ -21,7 +23,7 @@ android {
         }
         release {
             //混淆
-            minifyEnabled true
+            minifyEnabled false
             //混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -31,23 +33,14 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
-    /**编译选项*/
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    /**自定义aar的名字*/
+    android.libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = outputFileName.replace(".aar", "-") + rootProject.ext.android.versionCode + ".aar"
+        }
     }
-
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    /**support*/
-    implementation rootProject.ext.supportLibs
-    /**butterknife*/
-    implementation 'com.jakewharton:butterknife:9.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0'
-    /*generalnetworklib*/
-    implementation project(path: ':mvplib')
-    implementation project(path: ':apilib')
 }

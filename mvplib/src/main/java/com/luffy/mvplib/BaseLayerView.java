@@ -1,4 +1,4 @@
-package com.luffy.generalnetworklib.mvp;
+package com.luffy.mvplib;
 
 /**
  * Created by lvlufei on 2018/11/3

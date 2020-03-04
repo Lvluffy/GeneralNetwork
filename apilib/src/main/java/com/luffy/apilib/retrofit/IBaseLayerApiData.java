@@ -1,4 +1,4 @@
-package com.luffy.generalnetworklib.api.retrofit;
+package com.luffy.apilib.retrofit;
 
 /**
  * Created by lvlufei on 2019/12/3

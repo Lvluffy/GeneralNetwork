@@ -9,7 +9,7 @@ import com.luffy.generalnetwork.R;
 import com.luffy.generalnetwork.mvp.contract.LoginContract;
 import com.luffy.generalnetwork.mvp.model.LoginBean;
 import com.luffy.generalnetwork.mvp.presenter.LoginPresenter;
-import com.luffy.generalnetworklib.mvp.BaseLayerPresenter;
+import com.luffy.mvplib.BaseLayerPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

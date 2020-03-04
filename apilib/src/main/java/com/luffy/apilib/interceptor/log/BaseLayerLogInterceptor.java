@@ -1,4 +1,4 @@
-package com.luffy.generalnetworklib.api.interceptor.log;
+package com.luffy.apilib.interceptor.log;
 
 import java.io.IOException;
 

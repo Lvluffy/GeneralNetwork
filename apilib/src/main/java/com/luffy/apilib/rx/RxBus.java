@@ -1,4 +1,4 @@
-package com.luffy.generalnetworklib.rx;
+package com.luffy.apilib.rx;
 
 import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;

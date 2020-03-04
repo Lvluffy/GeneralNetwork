@@ -1,11 +1,11 @@
 package com.luffy.generalnetwork.mvp.presenter;
 
 
+import com.luffy.apilib.retrofit.BaseLayerApiObserver;
 import com.luffy.generalnetwork.api.retrofit.ApiClient;
 import com.luffy.generalnetwork.mvp.contract.LoginContract;
 import com.luffy.generalnetwork.mvp.model.LoginBean;
-import com.luffy.generalnetworklib.api.retrofit.BaseLayerApiObserver;
-import com.luffy.generalnetworklib.mvp.BaseLayerPresenter;
+import com.luffy.mvplib.BaseLayerPresenter;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

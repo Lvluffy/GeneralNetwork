@@ -1,7 +1,7 @@
 package com.luffy.generalnetwork.mvp.model;
 
 
-import com.luffy.generalnetworklib.mvp.BaseLayerModel;
+import com.luffy.mvplib.BaseLayerModel;
 
 /**
  * Created by lvlufei on 2018/11/3

@@ -1,7 +1,7 @@
 package com.luffy.generalnetwork.api.interceptor;
 
+import com.luffy.apilib.interceptor.parameter.BaseLayerParameterOfBodyInterceptor;
 import com.luffy.generalnetwork.api.commonParameters.ParametersHelper;
-import com.luffy.generalnetworklib.api.interceptor.parameter.BaseLayerParameterOfBodyInterceptor;
 
 import java.io.IOException;
 import java.util.HashMap;

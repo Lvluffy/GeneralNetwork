@@ -1,4 +1,4 @@
-package com.luffy.generalnetworklib.api.retrofit;
+package com.luffy.apilib.retrofit;
 
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
