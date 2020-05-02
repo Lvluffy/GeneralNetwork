@@ -18,6 +18,4 @@ ext {
             "constraint-layout": "com.android.support.constraint:constraint-layout:${dependVersion.supportConstraintLayout}",
             "appcompat-v7"     : "com.android.support:appcompat-v7:${dependVersion.supportVersion}"
     ]
-
-    supportLibs = supportDepends.values()
 }
