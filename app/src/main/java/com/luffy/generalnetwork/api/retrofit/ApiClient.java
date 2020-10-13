@@ -4,9 +4,8 @@ package com.luffy.generalnetwork.api.retrofit;
 import com.google.gson.Gson;
 import com.luffy.generalnetwork.api.interceptor.LogInterceptor;
 import com.luffy.generalnetwork.api.interceptor.ParameterInterceptor;
+import com.luffy.generalnetwork.api.interceptor.TimeoutInterceptor;
 import com.luffy.generalnetwork.helper.ConstantsHelper;
-
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -19,7 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @desc 网络（Retrofit）客户端
  */
 public class ApiClient {
-    private static final long DEFAULT_TIME_OUT = 30 * 1000;
 
     private ApiClient() {
 
@@ -35,9 +33,7 @@ public class ApiClient {
 
     private OkHttpClient getOkHttpClient() {
         return new OkHttpClient.Builder()
-                .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.MILLISECONDS)
-                .writeTimeout(DEFAULT_TIME_OUT, TimeUnit.MILLISECONDS)
-                .readTimeout(DEFAULT_TIME_OUT, TimeUnit.MILLISECONDS)
+                .addInterceptor(new TimeoutInterceptor())
                 .addInterceptor(new ParameterInterceptor())
                 .addInterceptor(new LogInterceptor())
                 .build();
