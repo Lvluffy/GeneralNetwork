@@ -16,7 +16,7 @@ public class ConstantsHelper {
         /*api app_id*/
         public static final String APP_ID = "zs_app";
         /*api host*/
-        public static final String HOST = "http://open.51zhishang.com";
+        public static final String HOST = "http://open.51zhishang.com/";
     }
 
     /**
