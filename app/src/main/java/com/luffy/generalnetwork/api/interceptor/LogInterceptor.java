@@ -19,6 +19,7 @@ public class LogInterceptor extends BaseLayerLogInterceptor {
 
     @Override
     public void interceptRequest() {
+        Log.i(TAG, String.format("request method == %s", chain.request().method()));
         Log.i(TAG, String.format("request url == %s", chain.request().url()));
         Log.i(TAG, String.format("request headers == %s", chain.request().headers().toString()));
         FormBody formBody = (FormBody) chain.request().body();
