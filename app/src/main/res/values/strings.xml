@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">通用网络</string>
-    <string name="login">登录</string>
+    <string name="login_1">登录（Retrofit + OkHttp + RxJava）</string>
+    <string name="login_2">登录（OkHttp + RxJava 异步请求同步返回）</string>
+    <string name="login_3">登录（OkHttp 同步）</string>
+    <string name="login_4">登录（OkHttp 异步请求同步返回）</string>
 </resources>

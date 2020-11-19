@@ -32,7 +32,7 @@ public class ApiClient {
         private static final ApiClient mApiClient = new ApiClient();
     }
 
-    private OkHttpClient getOkHttpClient() {
+    public OkHttpClient getOkHttpClient() {
         return new OkHttpClient.Builder()
                 .addInterceptor(new TimeoutInterceptor())
                 .addInterceptor(new RetryInterceptor())
