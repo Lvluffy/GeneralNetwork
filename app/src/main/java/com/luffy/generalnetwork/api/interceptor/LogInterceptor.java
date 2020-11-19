@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import okhttp3.FormBody;
 import okhttp3.HttpUrl;
+import okhttp3.Request;
 import okhttp3.Response;
 
 /**
@@ -18,15 +19,17 @@ import okhttp3.Response;
 public class LogInterceptor extends BaseLayerLogInterceptor {
 
     @Override
-    public void interceptRequest() {
-        Log.i(TAG, String.format("request method == %s", chain.request().method()));
-        Log.i(TAG, String.format("request url == %s", chain.request().url()));
-        Log.i(TAG, String.format("request headers == %s", chain.request().headers().toString()));
-        FormBody formBody = (FormBody) chain.request().body();
+    public void interceptRequest(Request request) throws IOException {
+        Log.i(TAG, String.format("request method == %s", request.method()));
+        Log.i(TAG, String.format("request url == %s", request.url()));
+        Log.i(TAG, String.format("request headers == %s", request.headers().toString()));
+
+        FormBody formBody = (FormBody) request.body();
         for (int i = 0; i < (formBody != null ? formBody.size() : 0); i++) {
             Log.i(TAG, String.format("request bodys %s == %s", formBody.encodedName(i), formBody.encodedValue(i)));
         }
-        HttpUrl httpUrl = chain.request().url();
+
+        HttpUrl httpUrl = request.url();
         for (int i = 0; i < httpUrl.querySize(); i++) {
             Log.i(TAG, String.format("request parameter %s == %s", httpUrl.queryParameterName(i), httpUrl.queryParameterValue(i)));
         }

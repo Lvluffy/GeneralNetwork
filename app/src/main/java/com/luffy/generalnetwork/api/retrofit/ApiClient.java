@@ -4,6 +4,7 @@ package com.luffy.generalnetwork.api.retrofit;
 import com.google.gson.Gson;
 import com.luffy.generalnetwork.api.interceptor.LogInterceptor;
 import com.luffy.generalnetwork.api.interceptor.ParameterInterceptor;
+import com.luffy.generalnetwork.api.interceptor.RetryInterceptor;
 import com.luffy.generalnetwork.api.interceptor.TimeoutInterceptor;
 import com.luffy.generalnetwork.helper.ConstantsHelper;
 
@@ -34,6 +35,7 @@ public class ApiClient {
     private OkHttpClient getOkHttpClient() {
         return new OkHttpClient.Builder()
                 .addInterceptor(new TimeoutInterceptor())
+                .addInterceptor(new RetryInterceptor())
                 .addInterceptor(new ParameterInterceptor())
                 .addInterceptor(new LogInterceptor())
                 .build();

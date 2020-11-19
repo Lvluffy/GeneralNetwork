@@ -3,7 +3,6 @@ package com.luffy.apilib.interceptor.parameter;
 import java.io.IOException;
 
 import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
 import okhttp3.Request;
 
 /**
@@ -13,9 +12,8 @@ import okhttp3.Request;
  */
 public abstract class BaseLayerParameterOfParameterInterceptor extends BaseLayerParameterInterceptor {
     @Override
-    public Request interceptParameter(Interceptor.Chain chain) throws IOException {
+    public Request interceptParameter(Request request) throws IOException {
         /*---------------Parameter式添加参数---------------*/
-        Request request = chain.request();
         HttpUrl httpUrl = request.url();
         Request.Builder requestBuilder = request.newBuilder().url(addPublicParameter(httpUrl.newBuilder()));
         return requestBuilder.build();

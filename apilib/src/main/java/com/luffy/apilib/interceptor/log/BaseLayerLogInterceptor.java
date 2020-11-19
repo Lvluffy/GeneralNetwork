@@ -1,5 +1,7 @@
 package com.luffy.apilib.interceptor.log;
 
+import android.util.Log;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -13,21 +15,18 @@ import okhttp3.Response;
  */
 public abstract class BaseLayerLogInterceptor implements Interceptor {
     public final String TAG = BaseLayerLogInterceptor.class.getSimpleName();
-    public Chain chain;
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        this.chain = chain;
-        /*拦截请求*/
+        Log.i(TAG, "Log intercept is called");
         Request request = chain.request();
-        interceptRequest();
-        /*拦截响应*/
         Response response = chain.proceed(request);
+        interceptRequest(request);
         interceptResponse(response);
         return response;
     }
 
-    public abstract void interceptRequest() throws IOException;
+    public abstract void interceptRequest(Request request) throws IOException;
 
     public abstract void interceptResponse(Response response) throws IOException;
 }

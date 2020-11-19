@@ -24,6 +24,6 @@ public class ConstantsHelper {
      */
     public class Api {
         /*用户登录*/
-        public static final String LOGIN = "v2/user/login";
+        public static final String LOGIN = "v2/user/login1";
     }
 }

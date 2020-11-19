@@ -11,12 +11,8 @@ import okhttp3.Request;
  */
 public abstract class BaseLayerParameterOfHeaderInterceptor extends BaseLayerParameterInterceptor {
     @Override
-    public Request interceptParameter(Chain chain) throws IOException {
-        /*---------------Header式添加参数---------------*/
-        Request request = chain.request();
-        //添加公共Header
-        Request.Builder requestBuilder = addPublicHeader(request.newBuilder());
-        return requestBuilder.build();
+    public Request interceptParameter(Request request) throws IOException {
+        return addPublicHeader(request.newBuilder()).build();
     }
 
     /**

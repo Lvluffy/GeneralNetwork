@@ -3,7 +3,6 @@ package com.luffy.apilib.interceptor.parameter;
 import java.io.IOException;
 
 import okhttp3.FormBody;
-import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
@@ -14,10 +13,9 @@ import okhttp3.RequestBody;
  */
 public abstract class BaseLayerParameterOfBodyInterceptor extends BaseLayerParameterInterceptor {
     @Override
-    public Request interceptParameter(Interceptor.Chain chain) throws IOException {
+    public Request interceptParameter(Request request) throws IOException {
         /*---------------Body式添加参数---------------*/
-        Request request = chain.request();
-        if (chain.request().body() instanceof FormBody) {
+        if (request.body() instanceof FormBody) {
             FormBody oldFormBody = (FormBody) request.body();
             FormBody.Builder formBodyBuilder = new FormBody.Builder();
             //添加旧参数（接口请求参数）
