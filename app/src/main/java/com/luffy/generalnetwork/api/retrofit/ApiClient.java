@@ -25,10 +25,10 @@ public class ApiClient {
     }
 
     public static ApiClient getInstance() {
-        return RetrofitClientHelper.mApiClient;
+        return RetrofitClientHolder.mApiClient;
     }
 
-    private static class RetrofitClientHelper {
+    private static class RetrofitClientHolder {
         private static final ApiClient mApiClient = new ApiClient();
     }
 
