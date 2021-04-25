@@ -5,11 +5,13 @@ import android.util.Log;
 import com.luffy.apilib.interceptor.log.BaseLayerLogInterceptor;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 
-import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
+import okio.Buffer;
 
 /**
  * Created by lvlufei on 2018/11/3
@@ -24,10 +26,11 @@ public class LogInterceptor extends BaseLayerLogInterceptor {
         Log.i(TAG, String.format("request url == %s", request.url()));
         Log.i(TAG, String.format("request headers == %s", request.headers().toString()));
 
-        FormBody formBody = (FormBody) request.body();
-        for (int i = 0; i < (formBody != null ? formBody.size() : 0); i++) {
-            Log.i(TAG, String.format("request bodys %s == %s", formBody.encodedName(i), formBody.encodedValue(i)));
-        }
+        RequestBody requestBody = request.body();
+        Buffer buffer = new Buffer();
+        requestBody.writeTo(buffer);
+        Log.i(TAG, String.format("request body == %s", buffer.readString(Charset.forName("UTF-8"))));
+
 
         HttpUrl httpUrl = request.url();
         for (int i = 0; i < httpUrl.querySize(); i++) {
