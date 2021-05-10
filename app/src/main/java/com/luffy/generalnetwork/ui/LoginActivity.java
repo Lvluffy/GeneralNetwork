@@ -27,7 +27,9 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
@@ -36,6 +38,8 @@ import okhttp3.Response;
  * @desc 登录
  */
 public class LoginActivity extends AppCompatActivity implements LoginContract.LoginView {
+
+    private static final String TAG = "LoginActivity";
 
     LoginPresenter presenter;
 
@@ -75,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
     }
 
 
-    @OnClick({R.id.btn_login_1, R.id.btn_login_2, R.id.btn_login_3, R.id.btn_login_4})
+    @OnClick({R.id.btn_login_1, R.id.btn_login_2, R.id.btn_login_3, R.id.btn_login_4, R.id.btn_login_5})
     public void onViewClicked(View view) {
         txtTitle.setText("");
         switch (view.getId()) {
@@ -105,6 +109,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
                         bindData(getData2("18301639782", "123456"));
                     }
                 }).start();
+                break;
+            case R.id.btn_login_5:
+                report();
                 break;
         }
     }
@@ -137,16 +144,16 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new BaseLayerApiObserver<LoginBean>() {
-            @Override
-            public void onObserverError(Throwable e) {
-            }
+                    @Override
+                    public void onObserverError(Throwable e) {
+                    }
 
-            @Override
-            public void onObserverNext(LoginBean loginBean) {
-                data[0] = loginBean;
-                countDownLatch.countDown();
-            }
-        });
+                    @Override
+                    public void onObserverNext(LoginBean loginBean) {
+                        data[0] = loginBean;
+                        countDownLatch.countDown();
+                    }
+                });
         try {
             countDownLatch.await();
         } catch (InterruptedException e) {
@@ -221,6 +228,27 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
             e.printStackTrace();
         }
         return data[0];
+    }
+
+    private void report() {
+        LoginBean loginBean = new LoginBean();
+        loginBean.setStatus(111);
+        loginBean.setMsg("测试111");
+        Request request = new Request.Builder()
+                .url("http://log.ktvdaren.com/logs/vod_down")
+                .post(RequestBody.create(MediaType.parse("application/json"), new Gson().toJson(loginBean)))
+                .build();
+
+        HttpClient.getInstance(ApiClient.getInstance().getOkHttpClient()).enqueue(request, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+            }
+        });
     }
 
 }

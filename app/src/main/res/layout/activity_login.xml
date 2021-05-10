@@ -38,4 +38,10 @@
         android:layout_height="@dimen/y50"
         android:text="@string/login_4" />
 
+    <Button
+        android:id="@+id/btn_login_5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y50"
+        android:text="上报测试" />
+
 </LinearLayout>
